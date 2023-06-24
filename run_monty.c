@@ -3,7 +3,7 @@
 
 void free_tokens(void);
 unsigned int token_arr_len(void);
-int is_empty_ line(char *line, char *delims);
+int is_empty_line(char *line, char *delims);
 void (*get_op_func(char *opcode))(stack_t**, unsigned int);
 int run_monty(FILE *script_fd);
 
@@ -116,10 +116,10 @@ int run_monty(FILE *script_fd)
 	unsigned int line_number = 0, prev_tok_len = 0;
 	void (*op_func)(stack_t**, unsigned int);
 
-	if (init_stack(&stack) == EXI_FAILURE)
+	if (init_stack(&stack) == EXIT_FAILURE)
 		return (EXIT_FAILURE);
 
-	while (getline(&line, &len, script_fd) != -1)
+	while (get_int(char **, &len, script_fd) != -1)
 	{
 		line_number++;
 		op_toks = strtow(line, DELIMS);
@@ -135,7 +135,7 @@ int run_monty(FILE *script_fd)
 			free_tokens();
 			continue;
 		}
-		op_func = get_op_function(op_toks[0]);
+		op_func = get_op_func(op_toks[0]);
 		if (op_func == NULL)
 		{
 			free_stack(&stack);

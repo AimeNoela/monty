@@ -30,10 +30,10 @@ char **strtow(char *str, char *delims)
 		return (NULL);
 	while (i < wc)
 	{
-		wordlen = get_word_length(str, delims);
-		if (is_delim(*str, deims))
+		wordlen = get_word_lenght(str, delims);
+		if (is_delim(*str, delims))
 		{
-			sts = get_next_word(str, delims);
+			str = get_next_word(str, delims);
 		}
 		words[i] = malloc((wordlen + 1) * sizeof(char));
 		if (words[i] == NULL)
@@ -68,7 +68,7 @@ char **strtow(char *str, char *delims)
  */
 int is_delim(char ch, char *delims)
 {
-	int - = 0;
+	int i = 0;
 
 	while (delims[i])
 	{
@@ -88,7 +88,7 @@ int is_delim(char ch, char *delims)
  */
 int get_word_length(char *str, char *delims)
 {
-	int wln = 0, pending = 1, i = 0;
+	int wlen = 0, pending = 1, i = 0;
 
 	while (*(str + i))
 	{

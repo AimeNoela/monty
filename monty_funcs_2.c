@@ -18,7 +18,7 @@ void monty_add(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
-		set_op_tok_error(short_stack_error(line_number, "add"));
+		set_op_tok_error(short_start_error(line_number, "add"));
 		/* Set error message if stack is too short */
 		return;
 	}
@@ -40,7 +40,7 @@ void monty_sub(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
-		set_op_tok_error(short_stack_error(line_number, "sub"));
+		set_op_tok_error(short_start_error(line_number, "sub"));
 		/* Set error message if stack is too short */
 		return;
 	}
@@ -62,7 +62,7 @@ void monty_div(stack_t **stack, unsigned int line_number)
 {
 	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 	{
-		set_op_tok_error(short_stack_error(line_number, "div"));
+		set_op_tok_error(short_start_error(line_number, "div"));
 		/* Set error message if stack is too short */
 		return;
 	}

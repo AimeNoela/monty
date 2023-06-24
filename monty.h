@@ -71,7 +71,7 @@ void monty_queue(stack_t **stack, unsigned int line_number);
 
 /* custom standard library function */
 char **strtow(char *str, char *delims);
-char *get_int(int n);
+char **get_int(int n);
 
 /*erro cose and message */
 int usage_error(void);
