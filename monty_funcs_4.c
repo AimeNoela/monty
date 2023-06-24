@@ -6,9 +6,9 @@ void monty_stack(stack_t **stack, unsigned int line_number);
 void monty_queue(stack_t **stack, unsigned int line_number);
 
 /**
- * monty_rotl - rotate the top value stack_t liked list to bottom
- * @stack: pointer to top mode node of stack_t linked list
- * @line_number: current working line number of monty bytecode file
+ * monty_rotl - rotates the top value of a stack_t linked list to the bottom
+ * @stack: pointer to the top mode node of a stack_t linked list
+ * @line_number: current working line number of the monty bytecode file
  */
 void monty_rotl(stack_t **stack, unsigned int line_number)
 {
@@ -22,59 +22,62 @@ void monty_rotl(stack_t **stack, unsigned int line_number)
 	while (bottom->next != NULL)
 		bottom = bottom->next;
 
-	top->next->prev = *stack;
-	(*stack)->next = top->next;
-	bottom->next = top;
-	top->next = NULL;
-	top->prev = bottom;
+	top->next->prev = *stack; /* Update the previous node of the second element */
+	(*stack)->next = top->next; /* Update the next node of the top element */
+	bottom->next = top; /* Move the top element to the bottom */
+	top->next = NULL; /* Set the next node of the top element as NULL */
+	top->prev = bottom; /* Update the previous node of the top element */
 
 	(void)line_number;
 }
 
 /**
- * monty_rotr - rotate bottom value of stack_t linked line to top
- * @stack: pointer the top mode node of stack_t linked list
- * @line_number: current working line number of monty bytecodes file
+ * monty_rotr - rotates the bottom value of a stack_t linked list to the top
+ * @stack: pointer to the top mode node of a stack_t linked list
+ * @line_number: current working line number of the monty bytecode file
  */
 void monty_rotr(stack_t **stack, unsigned int line_number)
 {
 	stack_t *top, *bottom;
 
-	if ((*stack)->next == NULL || (*stock)->next->next == NULL)
+	if ((*stack)->next == NULL || (*stack)->next->next == NULL)
 		return;
 
-	top = (*stck)->next;
+	top = (*stack)->next;
 	bottom = (*stack)->next;
 	while (bottom->next != NULL)
 		bottom = bottom->next;
 
 	bottom->prev->next = NULL;
-	(*stack)->next = bottom;
-	bottom->prev = *stack;
-	bottom->next = top;
-	top->prev = bottom;
+	/* Set the next node of the second-to-last node as NULL */
+	(*stack)->next = bottom; /* Update the next node of the top element */
+	bottom->prev = *stack; /* Update the previous node of the bottom element */
+	bottom->next = top; /* Move the bottom element to the top */
+	top->prev = bottom; /* Update the previous node of the top element */
 
 	(void)line_number;
 }
 
 /**
- * monty_stack - covert queu to stack
- * @stack: ponter to top mode of stack_t list
- * @line_number: current working line number o monty bytecodes file
+ * monty_stack - converts the queue to a stack
+ * @stack: pointer to the top mode node of a stack_t linked list
+ * @line_number: current working line number of the monty bytecode file
  */
 void monty_stack(stack_t **stack, unsigned int line_number)
 {
-	(*stackk)->n = STACK;
+	(*stack)->n = STACK; /* Set the 'n' value of the top element as STACK */
+
 	(void)line_number;
 }
 
 /**
- * monty_queue - converts stack to queue
- * @stack: pointer to mode node of stack_t linked list
- * @line_number: current working line number of monty bytecode file
+ * monty_queue - converts the stack to a queue
+ * @stack: pointer to the top mode node of a stack_t linked list
+ * @line_number: current working line number of the monty bytecode file
  */
 void monty_queue(stack_t **stack, unsigned int line_number)
 {
-	(*stack)->n = QUEUE;
+	(*stack)->n = QUEUE; /* Set the 'n' value of the top element as QUEUE */
+
 	(void)line_number;
 }
